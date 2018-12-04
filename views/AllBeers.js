@@ -41,7 +41,7 @@ export default class AllBeers extends React.Component{
 
     let beersHTML;
     if(this.state.isLoading){
-      beersHTML = (<Spinner/>);
+      beersHTML = (<Spinner style={{marginTop: "25%"}}/>);
     } else {
       beersHTML = this.state.beersToDisplay.map(beer => (
         <Link key={beer._id} to={`/single-beer/${beer._id}`}>
@@ -49,16 +49,15 @@ export default class AllBeers extends React.Component{
             <View style={{flex: 1}}>
               <Image source={{uri: beer.image_url}} resizeMode={'contain'} style={{flex: 1}}/>
             </View>
-            <CardItem cardBody style={{flex: 2, flexDirection:'column', alignItems: 'flexStart', justifyContent: 'space-between'}}>
+            <CardItem cardBody style={{flex: 2, flexDirection:'column', alignItems: 'flex-start', justifyContent: 'space-between'}}>
               <H1>{beer.name}</H1>
               <H3>{beer.tagline}</H3>
               <Text>Created by : {beer.contributed_by}</Text>
             </CardItem>
           </Card>
         </Link>
-    ));
+      ));
     }
-
 
     return (
       <Container>
