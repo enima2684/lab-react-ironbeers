@@ -6,6 +6,7 @@ import {Home} from "./views/Home.js";
 import NewBeer from "./views/NewBeer.js";
 import AllBeers from "./views/AllBeers.js";
 import RandomBeer from "./views/RandomBeer.js";
+import SingleBeer from "./views/SingleBeer";
 
 
 export default class App extends React.Component {
@@ -26,8 +27,8 @@ export default class App extends React.Component {
           <Route path='/beers' component={AllBeers}/>
           <Route path='/random-beer' component={RandomBeer}/>
           <Route path='/new-beer' component={NewBeer}/>
+          <Route path='/single-beer/:id' component={SingleBeer}/>
         </Switch>
-
 
       </NativeRouter>
     );

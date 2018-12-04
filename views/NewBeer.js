@@ -8,7 +8,7 @@ export default class NewBeer extends React.Component{
   render(){
     return (
       <Container>
-        <HeaderBeer title={'New Beer'}/>
+        <HeaderBeer title={'New Beer'} to={'/'}/>
         <Text>This is New Beer</Text>
       </Container>
     )

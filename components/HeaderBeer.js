@@ -4,14 +4,12 @@ import {Link} from 'react-router-native';
 
 export default class HeaderBeer extends React.Component{
 
-
   render(){
     return (
-       <Container>
         <Header noShadow>
           <Left>
             <Button transparent>
-              <Link to={'/'}>
+              <Link to={this.props.to}>
                 <Icon name="ios-arrow-back" />
               </Link>
             </Button>
@@ -21,8 +19,6 @@ export default class HeaderBeer extends React.Component{
           </Body>
           <Right></Right>
         </Header>
-      </Container>
     )
   }
-
 }
