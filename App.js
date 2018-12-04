@@ -5,7 +5,6 @@ import { NativeRouter, Route, Link, Switch } from "react-router-native";
 import {Home} from "./views/Home.js";
 import NewBeer from "./views/NewBeer.js";
 import AllBeers from "./views/AllBeers.js";
-import RandomBeer from "./views/RandomBeer.js";
 import SingleBeer from "./views/SingleBeer";
 
 
@@ -25,7 +24,7 @@ export default class App extends React.Component {
         <Switch>
           <Route exact path="/" component={Home}/>
           <Route path='/beers' component={AllBeers}/>
-          <Route path='/random-beer' component={RandomBeer}/>
+          <Route path='/random-beer' component={(props) => <SingleBeer {...props} isRandom={true}/>}/>
           <Route path='/new-beer' component={NewBeer}/>
           <Route path='/single-beer/:id' component={SingleBeer}/>
         </Switch>

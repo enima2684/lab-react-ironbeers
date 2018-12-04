@@ -14,7 +14,6 @@ export class Home extends React.Component{
       <Container>
 
         <ScrollView>
-
           <Link to={'/beers'}>
             <Card style={styles.CardItem}>
               <CardItem>
@@ -58,7 +57,6 @@ export class Home extends React.Component{
           </Link>
         </ScrollView>
       </Container>
-
       )
   }
 }

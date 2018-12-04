@@ -13,19 +13,31 @@ export default class SingleBeer extends React.Component{
     this.state = {};
   }
 
+  getBeerId(){
+    return this.props.match.params.id
+  }
 
   async componentDidMount(){
-    let data = await axios.get(`https://ironbeer-api.herokuapp.com/beers/single/${this.props.match.params.id}`);
-    this.setState(data.data);
+
+    let data;
+    if(this.props.isRandom){
+      data = await axios.get(`https://ironbeer-api.herokuapp.com/beers/random`);
+      data = data.data[0];
+    } else {
+      data = await axios.get(`https://ironbeer-api.herokuapp.com/beers/single/${this.getBeerId()}`);
+      data = data.data;
+    }
+    this.setState(data);
   }
 
   render(){
 
     return (
       <Container>
-        <HeaderBeer title={this.state.name} to={'/beers'}/>
+        <HeaderBeer title={this.state.name} to={  this.props.isRandom ? '/' : '/beers'}/>
 
         <Content>
+
           <View style={styles.imgContainer}>
             <Image source={{uri: this.state.image_url}} style={{flex: 1}} resizeMode={'contain'}/>
           </View>
